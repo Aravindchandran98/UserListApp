@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import org.json.JSONArray
+import java.io.InputStream
 
 class UserListActivity : AppCompatActivity() {
     private var listView: ListView? = null
@@ -13,8 +15,23 @@ class UserListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         listView = findViewById(R.id.listView)
-        var jsonReader: JsonReader = JsonReader()
-        list = jsonReader.makeArray()
+     //   var jsonReader: JsonReader = JsonReader()
+     //   list = jsonReader.makeArrays()
+        var json:String?=null
+        val inputStream: InputStream =assets.open("UserDetails.json")
+        json =inputStream.bufferedReader().use { it.readText() }
+        var jsonarr=JSONArray(json)
+        var userArray:Array<User>?=null
+        for(index in 0..jsonarr.length()){
+            userArray!![index]=jsonarr[index] as User
+        }
+        for(index in userArray!!){
+            list!!.add(index)
+        }
+        /*for (index in 0..jsonarr.length()) {
+        //    var jsonObj = jsonarr.getJSONObject(index)
+            list!!.add(jsonarr[index])
+        }*/
         adapter = Adapter(this, list!!)
         listView!!.adapter = adapter
         //click listener for cards
@@ -32,5 +49,11 @@ class UserListActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+    //    fun makeArrays(): ArrayList<User>{
+
+        //    return list!!
+      //  }
     }
+
+    //   json=inputStream.bufferedReader().use { it.readText() }
 }
