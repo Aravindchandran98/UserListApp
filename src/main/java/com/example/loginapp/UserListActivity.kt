@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.widget.ListView
 import org.json.JSONArray
 import java.io.InputStream
+import java.lang.Exception
 
 class UserListActivity : AppCompatActivity() {
     private var listView: ListView? = null
-    private var list: ArrayList<User>? = null
+    private var list: ArrayList<User>?=null
     private var adapter: Adapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,13 +22,19 @@ class UserListActivity : AppCompatActivity() {
         val inputStream: InputStream =assets.open("UserDetails.json")
         json =inputStream.bufferedReader().use { it.readText() }
         var jsonarr=JSONArray(json)
-        var userArray:Array<User>?=null
+      /*  var userArray:Array<User>?=null
         for(index in 0..jsonarr.length()){
-            userArray!![index]=jsonarr[index] as User
-        }
-        for(index in userArray!!){
-            list!!.add(index)
-        }
+            userArray!![index]= jsonarr[index] as User
+        }*/
+        for(index in 0..jsonarr.length()-1){
+            var jsonObj = jsonarr.getJSONObject(index)
+           var n=jsonObj.getString("name")
+           var p=jsonObj.getLong("phoneNumber")
+           var a=jsonObj.getInt("age")
+                var t=User(n,p,a)
+            list=list
+                    list!!.add(t)
+                    }
         /*for (index in 0..jsonarr.length()) {
         //    var jsonObj = jsonarr.getJSONObject(index)
             list!!.add(jsonarr[index])
