@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 
-class Adapter(context: Context, list: ArrayList<User>) : BaseAdapter() {
-    private val context: Context? = null
-    private val list: ArrayList<User>? = null
+class Adapter(val list: ArrayList<User>) : BaseAdapter() {
+    //private val context: Context? = null
+    //private var list: ArrayList<User> = ArrayList()
 
     /* constructor(context: Context,list:ArrayList<UserList>){
 
