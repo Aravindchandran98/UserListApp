@@ -15,8 +15,8 @@ class UserDetailActivity : AppCompatActivity() {
         name = findViewById(R.id.name)
         phoneNumber = findViewById(R.id.phoneNumber)
         age = findViewById(R.id.age)
-        name=intent.getStringExtra("name") as TextView
-        phoneNumber=intent.getLongExtra("phoneNumber",0) as TextView
-        age=intent.getIntExtra("age",0) as TextView
+        name = intent.getStringExtra("name") as TextView
+        phoneNumber = intent.getLongExtra("phoneNumber", 0) as TextView
+        age = intent.getIntExtra("age", 0) as TextView
     }
 }
