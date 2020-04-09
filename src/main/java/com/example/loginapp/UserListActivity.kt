@@ -30,7 +30,7 @@ class UserListActivity : AppCompatActivity() {
             list!!.add(t)
         }
         adapter = Adapter(list!!, image1)
-        listView!!.adapter = adapter
+        listView!!.adapter=adapter
         //click listener for cards
         listView!!.setOnItemClickListener { adapterView, view, position, id ->
             var intent: Intent = Intent(this, UserDetailActivity::class.java)
