@@ -29,7 +29,7 @@ class UserListActivity : AppCompatActivity() {
             var t = User(n, p, a)
             list!!.add(t)
         }
-        adapter = Adapter(list!!, image1)
+        adapter = Adapter(list!!)
         listView!!.adapter=adapter
         //click listener for cards
         listView!!.setOnItemClickListener { adapterView, view, position, id ->

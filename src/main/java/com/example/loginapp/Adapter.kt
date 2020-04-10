@@ -6,7 +6,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-class Adapter(val list: ArrayList<User>, var image1: Int) : BaseAdapter() {
+class Adapter(val list: ArrayList<User>) : BaseAdapter() {
     override fun getItem(position: Int): Any {
         return list!!.get(position)
     }
@@ -34,7 +34,7 @@ class Adapter(val list: ArrayList<User>, var image1: Int) : BaseAdapter() {
         name.text = user.userName
         phoneNumber.text = user.userPhoneNumber.toString()
         age.text = user.userAge.toString()
-        image.setImageResource(image1)
+        //image.setImageResource(image1)
         return convertViewHolder
     }
 }
